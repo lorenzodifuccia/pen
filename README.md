@@ -1,2 +1,2 @@
 # pen
-">&lt;script>alert`XSS`&lt;/script>
+"><script>alert\`XSS\`</script>
