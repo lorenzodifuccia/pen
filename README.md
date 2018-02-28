@@ -1,7 +1,5 @@
 # PEN
-"><script>alert\`XSS\`</script>
-  
-----
+A curated list of script and attack for security testing purposes and knowledgement.  
   
 ## JavaScript:
   - #### `target="_blank"` vulnerability:
