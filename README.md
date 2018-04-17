@@ -2,6 +2,50 @@
 A curated list of script and attack for security testing purposes and knowledgement.  
   
 ## JavaScript:
+  - #### Bypass `Chrome Headless` detection:
+    ```javascript
+    // Pass the User-Agent Test.
+    const userAgent = 'Mozilla/5.0 (X11; Linux x86_64)' +
+        'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36';
+    await page.setUserAgent(userAgent);
+    
+    await page.evaluateOnNewDocument(() => {
+      // Pass the Webdriver Test.
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => false,
+      });
+      
+      // Pass the Chrome Test.
+      window.navigator.chrome = {
+        // We can mock this in as much depth as we need for the test.
+        runtime: {}, // etc.
+      };
+      
+      // Pass the Plugins Length Test.
+      Object.defineProperty(navigator, 'plugins', {
+        // Overwrite the `plugins` property to use a custom getter.
+        // This just needs to have `length > 0` for the current test,
+        // but we could mock the plugins too if necessary.
+        get: () => [1, 2, 3, 4, 5],
+      });
+      
+      // Pass the Languages Test.
+      Object.defineProperty(navigator, 'languages', {
+        get: () => ['en-US', 'en'],
+      });
+      
+      // Pass the Permissions Test.
+      const originalQuery = window.navigator.permissions.query;
+      return window.navigator.permissions.query = (parameters) => (
+        parameters.name === 'notifications' ?
+          Promise.resolve({ state: Notification.permission }) :
+          originalQuery(parameters)
+      );
+    });    
+    ```
+    References:
+    - https://intoli.com/blog/not-possible-to-block-chrome-headless/
+    
   - #### `target="_blank"` vulnerability:
     ```javascript
     if (window.opener && window.opener.location) {
