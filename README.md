@@ -1,5 +1,5 @@
 # PEN
-A curated list of script and attack for security testing purposes and knowledgement.  
+A (not-so-well)curated list of script and attack for security testing purposes and general knowledge.
   
 ## JavaScript:
   - #### Bypass `Chrome Headless` detection:
